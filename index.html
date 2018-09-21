@@ -34,117 +34,7 @@
 
     <script src="js/jquery.elastislide.js"></script>
 
-    <script src="js/jquery.qtip-1.0.0-rc3.min.js"></script>
-		<script>
-
-		function TempsRestant(date_debut, date_fin, id_compteur)
-		{
-		var Affiche = document.getElementById(id_compteur);
-		var date1 = date_debut;
-		var date2 = date_fin;
-		var sec = (date2 - date1);
-		var n = 24 * 3600;
-
-		if (sec > 0)
-		{
-		j = Math.floor (sec / n);
-		h = Math.floor ((sec - (j * n)) / 3600);
-		mn = Math.floor ((sec - ((j * n + h * 3600))) / 60);
-		sec = Math.floor (sec - ((j * n + h * 3600 + mn * 60)));
-
-		if(j == 0)
-		{
-			j = '';
-			Jour = '';
-		}
-		else
-		{
-			Jour = (j == 1) ? "j" : "j";
-		}
-
-		if(h == 0 && j == 0)
-		{
-			h = '';
-			Heure = '';
-		}
-		else
-		{
-			Heure = (h == 1) ? "h" : "h";
-		}
-
-		if(mn == 0 && h == 0)
-		{
-			mn = '';
-			Minute = '';
-		}
-		else
-		{
-			Minute = (mn == 1) ? "min" : "min";
-		}
-
-		Seconde = (sec == 1) ? "sec" : "sec";
-		Et = (mn == 0 && h == 0 && j == 0) ? "" : "";
-
-		Affiche.innerHTML = j + ' ' + Jour + ' ' + h + ' ' + Heure + ' ' + mn + ' ' + Minute + ' ' + Et + ' ' + sec + ' ' + Seconde;
-		actualisation = "TempsRestant("+(date_debut + 1)+","+date_fin+",'"+id_compteur+"');";
-		setTimeout(actualisation, 1000);
-		}
-		else
-		{
-    		Affiche.innerHTML = "Connexion...";
-    		actualisation = "window.location.href = window.location.href;";
-    		setTimeout(actualisation, 3000);
-		}
-		}
-        
-        
-        function heureServeur()
-        {
-        	server_sec++;
-        
-        	if(server_sec < 10)
-        	{
-        		server_sec = "0"+Math.round(server_sec);
-        	}
-        	else if(server_sec >= 60)
-        	{
-        		server_sec = "00";
-        		server_min++;
-        	}
-        
-        	if(server_min < 10)
-        	{
-        		server_min = "0"+Math.round(server_min);
-        	}
-        	else if(server_min >= 60)
-        	{
-        		server_min = "00";
-        		server_heu++;
-        	}
-        
-        	if(server_heu < 10)
-        	{
-        		server_heu = "0"+Math.round(server_heu);
-        	}
-        	else if(server_heu >= 24)
-        	{
-        		server_heu = "00";
-        	}
-        
-        	server_texte = server_heu + ":" + server_min + ":" + server_sec;
-        
-        	if(document.getElementById)
-        	{
-        		document.getElementById("server_heure").innerHTML=server_texte;
-        	}
-        }
-        setInterval("heureServeur()", 1000);
-
-        server_date = new Date(0,0,0,16, 44, 08);
-        server_heu = server_date.getHours();
-        server_min = server_date.getMinutes();
-        server_sec = server_date.getSeconds();
-		</script>
+    
 		<style>
 		    a.tip {
                 border-bottom: 1px dashed;
@@ -196,126 +86,14 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 offset-md-8" style="color:white; ">
-                   Joueurs online [38] | <a href="https://forum.warsofninja.eu/">Forum</a> |  <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> <a href="config/logout.php">Déconnexion</a>
-               </div>
-            </div>
-        </div>
-        
-        <div class="container container-general">
-            
-           
-            
-            
-            <div class="menu">
-                
-               
-                <div class="info_header_left">
-                    <div class="nom_ile_header">
-                                            </div>
-                    
-                </div>
-                <div class="info_header_right">
-                   <table border="0">
-                        <tr>
-                            <td width="110">Niveaux</td>
-                            <td width="110" >4</td>
-                            <td rowspan="4">
-                                <div class="img_header">
-                                    <div class="pseudo_header">Megumin</div>
-                                                                        <img src="https://warsofninja.eu/membre/images/f1f72055be8e367fe233be14a37be8b5.jpg" alt="image_joueur" width="150" height="100">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Expérience</td>
-                            <td width="110">0/150</td>
-                        </tr>
-                        <tr>
-                            <td>Habitants</td>
-                            <td width="110" >225</td>
-                        </tr>
-                        <tr>
-                            <td>Points</td>
-                            <td width="110" >277</td>
-                        </tr>
-                    </table>
-                </div>
-                <p class="clear"></p>
-              
-                <nav class="navbar navbar-toggleable-md">
-                    <button class="navbar-toggler navbar-toggler-right" type="button"
-                    data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon">Menu</span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav nav-personal">
-                            <li class="nav-item">
-                               <a href="index.php">Vue Global</a>
-                            </li>
-                            <li class="nav-item">
-                               <a href="centre_ville.php">Centre Ville</a>
-                            </li>
-                            
-                            <li class="nav-item">
-                                <a href="map.php">Suikô</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="classement.php">Classement</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="buildtree.php">Buildtree</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="bonus.php">Bonus</a>
-                            </li>
-                            <li  class="nav-item">
-                                <span id="server_heure" style="color:white">16:44:08</span>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-                <nav>
-                    <table id="ressources">
-                        <tr>
-                            <td class="ico_ress"><a href="prods_bois.php" title="Bois"><img src="img/bois.png" width="16" height="16" alt="Bois" /></a></td>
-                            <td class="nb_ress">3567</b>/15291</td>
-                            <td class="ico_ress"><a href="prods_pierre.php" title="Pierre"><img src="img/pierre.png" width="16" height="16" alt="Pierres" /></a></td>
-                            <td class="nb_ress">3905</b>/15291</td>
-                            <td class="ico_ress"><a href="prods_fer.php" title="Fer"><img src="img/fer.png" width="16" height="16" alt="Fer" /></a></td>
-                            <td class="nb_ress">3724</b>/15291</td>
-                            <td class="ico_ress"><a href="prods_nourriture.php" title="Nourriture"><img src="img/nourriture.png" width="16" height="16" alt="Nourriture" /></a></td>
-                            <td class="nb_ress">319</b>/12233</td>
-                        </tr>
-                    </table>
-                </nav>
+    
 
-            </div>
 			<h1>LANCER UNE ATTAQUE</h1>
  
 				<table id="lancer_attaque">
-					
-					<tr>
-						<td class="type_attaquant">Genin</td>
-						<td class="type_attaquant">Chuunin</td>
-						<td class="type_attaquant">Jounin</td>
-					</tr>
-					<tr>
-						<td><img src="img/genin.png" alt="genin"></td>
-						<td><img src="img/chuunin.png" alt="chuunin"></td>
-						<td><img src="img/jounin.png" alt="jounin"></td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>2</td>
-						<td>2</td>
-					</tr>
 				<tr>
-				<iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
-				<form id="nbr_attaquants" method="post" action="https://warsofninja.eu/membre/envoi_ninja.php?id=44" target="dummyframe">
+
+				<form id="nbr_attaquants" method="post" action="https://warsofninja.eu/membre/envoi_ninja.php?id=44">
 				   
 					<td><input type="text" name="genin" max="3" value="18"></td>
 					<td><input type="text" name="chuunin" max="2" value ="6"></td>
@@ -336,78 +114,10 @@
 				</form>
 				</tr>
 				</table>
-<table width="85%" align="center" cellpadding="5" cellspacing="5" style="border: 0px; font-size: 14px;">
-    <tr>
-   		<td><img src="../images/pirate_aide.png"></td>
-		<td style="text-align: left;">Cette page te permet d'attaquer un village voisin d'un autre joueur de Wars of Ninja.
-		<br />Forme la troupe que tu souhaites envoyer en indiquant le nombre de genins, chuunin, et jounins.
-		<br />S&eacute;lectionne ensuite le type d'attaque : si tu souhaites un pur combat ou uniquement voler les ressources.<br />Clique sur le bouton "Envoyer" et consulte le temps d'arriv&eacute;e &agrave; partir du Quartier Général.</td></tr>
-</table>
 
 
-            <hr>
-            <footer>
-                <div class="row">
-                    <div class="col-1"></div>
-                    <div class="col">
-                        <p>Aide le jeu à se développer et payer un designer professionnel</p>
-                        <a href="https://www.paypal.me/warsofninja/"><img src="../config/paypal.png" alt="paypal donation" style="width:125; height:65px;margin-bottom:2%;"></a>
-                    </div>
-                    <div class="col">
-                        <p>&copy; warsofninja.eu</p><p><a style="color:#0a93a6; text-decoration:none;" href="https://www.filipesferreira.com"> filipesferreira.com</a>, All rights reserved 2018.</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-1"></div>
-                    <div class="col">
-                        <a href="roadmap.php">Roadmap</a>
-                    </div>
-                </div>
-            </footer>
+          
         </div>
     </div>
-
-
-    <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.js"></script>
-
-
-
-
-
-    <script src="config/chat_add_general.js"></script>
-    <script src="config/vote_add.js"></script>
-    <script src="config/chat_add.js"></script>
-    <script>
-    
-      /*function get_time(){
-        $.ajax({
-          url: 'config/heure.php',
-          success: function(data){
-            $('#heure_serveur').text(data);
-          }
-        });
-        setTimeout('get_time()',1000);
-      }
-
-      $(document).ready(function(){
-        get_time();
-      });*/
-
-        setInterval('load_messages()', 5000);
-        setInterval('load_messages_general()', 15000);
-
-        function load_messages(){
-            $('#message').load('../membre/actu_chat.php');
-        }
-
-        function load_messages_general(){
-            $('#message_general').load('../membre/actu_chat_general.php');
-        }
-    </script>
 </body>
 </html>
