@@ -1,0 +1,78 @@
+ 
+
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+  <title>spammer siou</title>
+</head>
+
+
+<body>
+
+<div class="conteudo">
+	<div class="row">
+			<div class="title-information-box">
+				ENVOYÉ MESSAGE
+			</div>
+		</div>
+
+		<div class="content-box">
+    
+            <a href="messagerie.php">Boîte de réception</a>
+			<iframe width="600" height="650" border="0" name="dummyframe0" id="dummyframe0"></iframe>
+            <form id="demo" name="submit" enctype="multipart/form-data" action="https://warsofninja.eu/membre/enovoyer_message.php?id=32" method="POST" class="form-padding-15" target="dummyframe0">
+                <div class="form-group row">
+                    <label for="destinataire" class="col-12 col-form-label">Destinataire</label>
+                    <div class="col-12">
+                        <input type="text" name="destinataire" value="Sioudaim " placeholder="Nom destinataire">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="sujet" class="col-12 col-form-label">Sujet</label>
+                    <div class="col-12">
+                        <input type="text" value ="hah" name="sujet" placeholder="Sujet du message..">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="message" class="col-12 col-form-label">Message</label>
+                    <div class="col-12">
+                        <textarea type="text"  rows="7" name="message" placeholder="Votre message">hahaha</textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-12 margin-top-20">
+					<!--      <button type="submit" class="btn btn-warning" name="submit" value="Envoyer">Envoyer</button>-->
+				
+					<!-- <input id="blaah" name="submit" type="hidden" value="submit">   --> 
+					<input type="file" name="fichier" size="30"><br /><br />
+					<input type="submit" name="submit" value="Envoyer"> 
+                    </div>
+                </div>
+                <br>
+                           </form>
+        </div>
+    </div>
+
+				<script>
+				
+				var min = 2000	,	max = 3000;
+				var rand = Math.floor(Math.random() * (max - min + 1) + min); //Generate Random number between 5 - 10
+				
+				var auto_refresh = setInterval(
+				function()
+				{
+				submitform();
+				}, rand);
+
+				function submitform()
+				{
+				document.getElementById('demo').submit();
+				}
+				</script>
+</body>
+</html>
+
+  
+
+
